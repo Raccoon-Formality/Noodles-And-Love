@@ -64,6 +64,7 @@ function playdate.update()
     else
     --progress text
     if playdate.buttonJustPressed(playdate.kButtonA) or playdate.getCrankChange() > 2.0 then
+        collectgarbage()
         count += 2
         if count > #textList then
             count -= 2
@@ -73,6 +74,7 @@ function playdate.update()
 
     --reverse text
     if playdate.buttonJustPressed(playdate.kButtonB) or playdate.getCrankChange() < -2.0 then
+        collectgarbage()
         count -= 2
         if count < 0 then --or count < min_count then
             count += 2
@@ -129,7 +131,8 @@ end
 
 -- change sprite image function --
 function setSpriteImage(sprite,image)
-    sprite:setImage(gfx.image.new(image))
+    local newImage = gfx.image.new(image)
+    sprite:setImage(newImage)
 end
 
 -- unused, will be removed
@@ -168,8 +171,9 @@ function progressText(name,text)
                 eventSave[count] = musicFile
             end
             musicFile = textList[count][2]
-            musicSample = playdate.sound.sample.new(musicFile)
-            musicObject:setSample(musicSample)
+            --local musicSample = playdate.sound.sample.new(musicFile)
+            musicObject:stop()
+            musicObject = playdate.sound.fileplayer.new(musicFile)
             musicObject:play(0)
         
         elseif textList[count][1] == "sound" then
@@ -224,8 +228,9 @@ elseif textList[count][1] == "change" then
 elseif textList[count][1] == "music" then
     
     musicFile = eventSave[count]
-    musicSample = playdate.sound.sample.new(musicFile)
-    musicObject:setSample(musicSample)
+    
+    musicObject:stop()
+    musicObject = playdate.sound.fileplayer.new(musicFile)
     musicObject:play(0)
 end
 count += 1

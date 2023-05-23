@@ -66,12 +66,14 @@ image_background_boba = "images/backgrounds/boba_shop"
 image_background_office = "images/backgrounds/office"
 image_background_kitchen = "images/backgrounds/kitchen"
 image_background_car = "images/backgrounds/car"
+image_background_construction = "images/backgrounds/construct"
+image_background_bar = "images/backgrounds/bar"
 
-image_blackground_black = "images/backgrounds/black"
+image_background_black = "images/backgrounds/black"
 
 -- background sprite
-bg_sprite = gfx.sprite.new(gfx.image.new(image_blackground_black))
-bg_sprite.image = image_blackground_black
+bg_sprite = gfx.sprite.new(gfx.image.new(image_background_black))
+bg_sprite.image = image_background_black
 bg_sprite:setZIndex(-32768)
 bg_sprite:moveTo(200,120)
 bg_sprite:add()
@@ -83,11 +85,12 @@ music_office_ambience = "music/office_ambience"
 music_morning_ambience = "music/morning"
 music_kitchen_ambience = "music/kitchen"
 music_restaurant_ambience = "music/restaurant"
+music_construct = "music/construct"
 music_blank = "music/silent"
 
 musicFile = music_dehumidifier
-musicSample = playdate.sound.sample.new(musicFile)
-musicObject = playdate.sound.sampleplayer.new(musicSample)
+--musicSample = playdate.sound.sample.new(musicFile)
+musicObject = playdate.sound.fileplayer.new(musicFile)
 
 
 
@@ -312,15 +315,206 @@ wolfUpper,"What if I was?",
 "nar","He laughs.",
 wolfUpper,"Well, if you wanna consider this a date,",
 wolfUpper,"then it will be a pretty untraditional date.",
-wolfUpper,"I really just wanted a bud to hand out with for the rest of the day."
-
+wolfUpper,"I really just wanted a bud to hand out with for the rest of the day.",
+"YOU","So..",
+"YOU","Where do you work?",
+wolfUpper,"Well.. it's hard to describe.",
+wolfUpper,"You'll just see.",
+"event",{"change",wolf_sprite,image_wolf_alt},
+"event",{"bg",image_background_office,1000},
+"nar","We arrive at a big building and walk up to an office.",
+"YOU","Wow, you work here?",
+wolfUpper,"Well, I guess I do.",
+wolfUpper,"We are a construction company.",
+"event",{"change",wolf_sprite,image_wolf_alt_blush},
+wolfUpper,"I'm the CEO.",
+"nar","Oh shit..",
+"event",{"change",wolf_sprite,image_wolf_happy},
+"nar","He takes his suit off and puts it on a hanger.",
+wolfUpper,"I hope you don't mind, working in a suit isn't my thing.",
+wolfUpper,"Also, I have to go on site a bit later.",
+"nar","I think he notices me still in flushed shock.",
+"event",{"change",wolf_sprite,image_wolf},
+wolfUpper,"What's up? You look like you've seen a ghost.",
+"event",{"change",wolf_sprite,image_wolf_happy},
+"nar","He laughs.",
+"YOU","You're the CEO?",
+"event",{"change",wolf_sprite,image_wolf},
+wolfUpper,"Yeah, I am.",
+"event",{"move",wolf_sprite,pos11},
+"nar","He sits in his big important business chair and starts working on some paperwork.",
+"YOU","Do you have a water cooler around here?",
+wolfUpper,"Yeah, just outside the door to the left.",
+"nar","I walk over and take a sip of water.",
+"nar","Holy fuck, he's the CEO??",
+"event",{"bg",image_background_black,2000},
+"nar","I might pass out..",
+"nar","fuck",
+"event",{"bg",image_background_office,100},
+"event",{"change",wolf_sprite,image_wolf_shock},
+"event",{"move",wolf_sprite,posC},
+wolfUpper,"Oh shit, are you alright?",
+"nar","The wolf is holding me gently in his arms.",
+"nar","He carries me over to a seat and sets me down.",
+"nar","He neals down in front of me.",
+"YOU","Are you marrying me?",
+"event",{"change",wolf_sprite,image_wolf_blush},
+"nar","We both laugh.",
+wolfUpper,"No, you dolt.",
+"event",{"change",wolf_sprite,image_wolf_flushed},
+wolfUpper,"Are you alright? You stepped outside and passed out.",
+"nar","Oh..",
+"YOU","I just couldn't believe you're a CEO.",
+"YOU","And that you wanted me to hang out with you.",
+"event",{"change",wolf_sprite,image_wolf_blush},
+wolfUpper,"Heh..",
+wolfUpper,"Tell you what, I just finished the paperwork,",
+wolfUpper,"How about we don't talk about me being CEO anymore and go to the worksite?",
+wolfUpper,"And then afterwords we can get some beer and appetizers at a bar?",
+"nar","That does sound quite nice.",
+"YOU","Okay, sounds good.",
+"event",{"bg",image_background_car,2000},
+"nar","He takes my hand and leads me back to his car.",
+"nar","He opens the passenger car door for me like a gentleman.",
+"nar","I blush and get in.",
+"nar","He walks around to the other side, gets in, and gets the car in gear to go.",
+"nar","We start driving towards the outskirts of the city.",
+"YOU","So, how did you end up as the CEO of a construction company?",
+wolfUpper,"Hey, I thought we weren't gonna talk about me being CEO.",
+wolfUpper,"I dunno, it still doesn't really make sense to me.",
+wolfUpper,"I was working my way up in the company",
+wolfUpper,"and then one day the CEO just straight up died.",
+wolfUpper,"So the shareholders decided to put me in charge",
+"YOU","Oh, cool.",
+"YOU","Well, you seem to be doing a good job.",
+"event",{"change",wolf_sprite,image_wolf_flushed},
+wolfUpper,"I guess..",
+"event",{"change",wolf_sprite,image_wolf_blush},
+wolfUpper,"What about you?",
+wolfUpper,"How did you end up at that ramen shop?",
+"YOU","Uhhh...",
+"YOU","I put in an application and got the job.",
+wolfUpper,"Haha, I guess I mean why there?",
+"YOU","I dunno, I just needed to work somewhere, college ain't cheap.",
+"event",{"change",wolf_sprite,image_wolf},
+wolfUpper,"I hear that.",
+"event",{"bg",image_background_construction,1000},
+"event",{"music",music_construct},
+"nar","We eventually end up at the site of a building under construction.",
+"event",{"move",wolf_sprite,pos11},
+wolfUpper,"Tommy! How's it going?",
+"nar","Oh, well I guess I will just hang out then.",
+"nar","That sure is a building.",
+"nar","I find a random hard-hat and put it on.",
+"RANDOM GUY","EY! What are you doing just hanging around?!",
+"RANDOM GUY","Get back to work!",
+"YOU","Oh, I don't work here-",
+"nar","He walks up to me and pushes me towards a pile of lumber.",
+"RANDOM GUY","Start moving!",
+"nar","fuck",
+"nar","I pick up a piece of lumber and-",
+"nar","Wait, where am I even supposed to take this?",
+"event",{"change",wolf_sprite,image_wolf_blush},
+"event",{"move",wolf_sprite,posC},
+wolfUpper,"What are you doing? haha",
+"RANDOM GUY","He's working!",
+"event",{"change",wolf_sprite,image_wolf},
+wolfUpper,"He doesn't work here, you dolt.",
+"RANDOM GUY","Oh..",
+"RANDOM GUY","Why is he wearing a hard-hat then?",
+"YOU","Um..",
+"YOU","Safety?",
+"nar","...",
+"event",{"bg",image_background_car,250},
+"event",{"music",music_blank},
+"event",{"sound",sound_car_door},
+"event",{"change",wolf_sprite,image_wolf_blush},
+wolfUpper,"Sorry about him.",
+"YOU","It's alright haha.",
+"YOU","I'm beat, can we get some beer now?",
+wolfUpper,"You picked up one piece of wood.",
+"YOU","Yeah, but it was a heavy piece of wood.",
+"YOU","My precious paws were made for that.",
+"event",{"change",wolf_sprite,image_wolf},
+wolfUpper,"Really? I thought you'd be good at it.",
+"YOU","Is this what this was really all about,",
+"YOU","you wanted to hire me for some manual labor?",
+"event",{"change",wolf_sprite,image_wolf_blush},
+wolfUpper,"No.",
+wolfUpper,"I thought you were cute.",
+"event",{"change",wolf_sprite,image_wolf},
+"event",{"music",music_restaurant_ambience},
+"event",{"bg",image_background_bar,500},
+wolfUpper,"Give me a drink, bartender.",
+"nar","They slide a crisp beer across the bar.",
+wolfUpper,"Make that two, please.",
+"nar","The bartender hands me a beer too.",
+wolfUpper,"So..",
+"nar","He takes a sip of his beer.",
+wolfUpper,"What do you want to do with your life?",
+"YOU","Damn, at least let me get buzzed first before you ask the hard questions.",
+"nar","I take a long drink of my beer.",
+"nar","Feels good, nice and refreshing.",
+"YOU","Uhhh..",
+"YOU","I wanna do something with computers I guess.",
+wolfUpper,"Yeah, I can see that.",
+"nar","He takes another sip.",
+"event",{"change",wolf_sprite,image_wolf_flushed},
+"nar","He looks like he has something he wants to say.",
+"YOU","What about you?",
+wolfUpper,"I want to have you over to play video games together sometime.",
+"YOU","..Is that all you want to do with your life right now?",
+"event",{"change",wolf_sprite,image_wolf_happy},
+wolfUpper,"Yes.",
+"YOU","Alright then, it's a date.",
+wolfUpper,"YIPPEE!!",
+wolfUpper,"Bartender, we're gonna need some mac and cheese bites over here!",
+"nar","I take his hand and hold it.",
+"event",{"move",wolf_sprite,pos11},
+"nar","This was an interesting experience,",
+"nar","definitely not what I was expecting to do tonight,",
+"nar","but I did enjoy my time.",
+"event",{"bg",image_background_kitchen,1000},
+"event",{"music",music_blank},
+"nar","After the bar, where he barely drank, he drove me home.",
+"YOU","Dad?",
+"nar","I find him spooning another man on the couch.",
+"nar","They look cute together, I hope he's a keeper.",
+"nar","Just like my wolf.",
+"event",{"bg",image_background_black,250},
+"event",{"music",music_dehumidifier},
+"nar","*THE END*",
+"nar","Written by: Matthew\nAs a part of Raccoon Formality.",
+"nar","Game was originally created for the MAY WOLF game jam",
+"nar","held by Unagi.",
+"nar","All sprites were made by Cody.",
+"nar","Background found on pexels.com\nSounds found at freesound.org",
+"nar","...",
+"nar","Now I need to add fluff to get to 2000 words.",
+"nar","How was your day?",
+"nar","If you've made it to this part,",
+"nar","maybe you should send me a picture on Mastodon.",
+"nar","Doesn't have to be of anything in particular",
+"nar","Show me your cat or some food you got.",
+"nar","idk, whatever you want.",
+"nar","Oh right, btw, when this ends you won't go back to the main menu",
+"nar","I'm too lazy to add an end state.",
+"nar","So you will just have to close the game and move on with your life.",
+"nar","Like how I will with mine.",
+"nar","That has to be enough by now, right? great.",
+"nar","Wouldn't it be so lame if I added unnecessary fluff to my actual story?",
+"nar","I think it would have been, I'm glad I did this instead.",
+"nar","Okay, have a nice rest of your day, I'm going to publish this on itch now.",
+"nar","*THE END*",
 }
-
 
 wordCount = 0
 for j=1, #textList, 2 do
     if textList[j] ~= "event" then
         _,n = textList[j+1]:gsub("%S+","")
+        if textList[j] ~= "nar" then
+            n += 1
+        end
         wordCount += n
     end
 end
