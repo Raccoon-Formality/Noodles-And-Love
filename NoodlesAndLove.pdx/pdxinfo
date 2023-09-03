@@ -1,0 +1,9 @@
+name=Noodles And Love
+author=Raccoon Formality
+description=Gay furry visual novel.
+bundleID=com.raccoonformality.noodlesandlove
+version=1.1
+buildNumber=112
+imagePath=SystemAssets
+pdxversion=20000
+buildtime=747079854

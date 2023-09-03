@@ -580,7 +580,8 @@ menuItem, error = menu:addMenuItem("Load", function()
         spriteCount += 1
         end
     end
-    musicObject:setSample(playdate.sound.sample.new(saveFile["music"]))
+    musicObject:stop()
+    musicObject = playdate.sound.fileplayer.new(saveFile["music"])
     musicObject:play(0)
     image2 = gfx.image.new(saveFile["bg"])
     setSpriteImage(bg_sprite,saveFile["bg"])

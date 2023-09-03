@@ -247,7 +247,7 @@ function wrapText(line, width, font)
     for word in line:gmatch("%S+") do
         if (font:getTextWidth(currentLine) + font:getTextWidth(word)) > width then
             newLine = newLine .. "\n" .. word .. " "
-            currentLine = ""
+            currentLine = word
         else
             newLine = newLine .. word .. " "
             currentLine = currentLine .. word .. " "
